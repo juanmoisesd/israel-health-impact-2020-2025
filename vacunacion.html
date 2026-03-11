@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacunación COVID-19 en Israel | Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+nav{background:#161b22;border-bottom:1px solid #30363d;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+nav a{color:#58a6ff;text-decoration:none;font-size:12px;padding:4px 8px;border-radius:4px;white-space:nowrap;}
+nav a:hover{background:#21262d;}
+nav .brand{color:#e6edf3;font-weight:700;font-size:14px;margin-right:8px;}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px;}
+h1{color:#d2a8ff;font-size:1.8em;margin-bottom:12px;}
+.abstract{background:#161b22;border:1px solid #30363d;border-left:4px solid #d2a8ff;border-radius:8px;padding:24px;margin-bottom:32px;}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px;}
+.kpi{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;text-align:center;}
+.kpi .val{font-size:1.8em;font-weight:700;color:#d2a8ff;}
+.kpi .lbl{font-size:11px;color:#8b949e;margin-top:4px;}
+.chart-box{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+.chart-box h3{color:#e6edf3;margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;margin-top:16px;}
+th{background:#21262d;color:#8b949e;padding:10px;text-align:left;font-size:12px;}
+td{padding:10px;border-bottom:1px solid #21262d;font-size:13px;}
+tr:hover td{background:#161b22;}
+.citation pre{background:#0d1117;padding:12px;border-radius:6px;font-size:12px;color:#8b949e;overflow-x:auto;white-space:pre-wrap;}
+.citation{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+footer{background:#161b22;border-top:1px solid #30363d;padding:20px;text-align:center;color:#8b949e;font-size:13px;}
+footer a{color:#58a6ff;text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+<span class="brand">🏥 Israel Health 2020-2025</span>
+<a href="index.html">Inicio</a>
+<a href="esperanza-vida.html">Esperanza de Vida</a>
+<a href="mortalidad.html">Mortalidad</a>
+<a href="covid19.html">COVID-19</a>
+<a href="vacunacion.html">Vacunación</a>
+<a href="salud-mental.html">Salud Mental</a>
+<a href="guerra-salud.html">Guerra & Salud</a>
+<a href="sistema-salud.html">Sistema Sanitario</a>
+<a href="enfermedades-cronicas.html">Enf. Crónicas</a>
+<a href="comparativa-ocde.html">OCDE Comparativa</a>
+<a href="factores-riesgo.html">Factores Riesgo</a>
+<a href="gasto-sanitario.html">Gasto Sanitario</a>
+<a href="indicadores-clave.html">Indicadores Clave</a>
+<a href="tendencias.html">Tendencias</a>
+<a href="poblacion.html">Población</a>
+<a href="metodologia.html">Metodología</a>
+<a href="datos.html">Datos</a>
+<a href="sitemap.html">Sitemap</a>
+</nav>
+<div class="container">
+<h1>💉 Vacunación COVID-19 en Israel (2020–2023)</h1>
+<div class="abstract">
+<h2 style="color:#d2a8ff;margin-bottom:10px;">Resumen</h2>
+<p>Israel fue el primer país del mundo en vacunar masivamente a su población adulta contra COVID-19, iniciando la campaña el 19 de diciembre de 2020. En solo 3 meses, más del 60% de adultos recibieron dos dosis (BioNTech/Pfizer). Israel implementó 4 dosis para grupos de riesgo, siendo también pionero global. La cobertura total alcanzó el 78% en mayores de 16 años. Fuentes: PMC/NIH, Ministerio de Salud, OMS. <strong>DOI: 10.7910/DVN/PL3G1E</strong></p>
+</div>
+<div class="kpi-grid">
+<div class="kpi"><div class="val">6.8M</div><div class="lbl">Total dosis administradas</div></div>
+<div class="kpi"><div class="val">78%</div><div class="lbl">Cobertura adultos 2 dosis</div></div>
+<div class="kpi"><div class="val">Dic-20</div><div class="lbl">Inicio campaña vacunación</div></div>
+<div class="kpi"><div class="val">4</div><div class="lbl">Dosis máximas aplicadas</div></div>
+<div class="kpi"><div class="val">90%</div><div class="lbl">Eficacia sintomática (2 dosis)</div></div>
+<div class="kpi"><div class="val">1ª</div><div class="lbl">País mundial en vacunación masiva</div></div>
+</div>
+<div class="chart-box">
+<h3>📊 Progreso de Vacunación por Dosis (% población elegible)</h3>
+<div id="chartVac" style="height:380px;"></div>
+</div>
+<div class="chart-box">
+<h3>🌍 Comparativa Velocidad Vacunación (dosis/100 hab. primer mes)</h3>
+<div id="chartVeloc" style="height:340px;"></div>
+</div>
+<div class="chart-box">
+<h3>📋 Hitos de la Campaña de Vacunación</h3>
+<table>
+<thead><tr><th>Fecha</th><th>Hito</th><th>Dosis</th><th>% pob. elegible</th></tr></thead>
+<tbody>
+<tr><td>19 Dic 2020</td><td>Primera vacuna administrada</td><td>1ª</td><td>0.1%</td></tr>
+<tr><td>Ene 2021</td><td>50% adultos con 1ª dosis</td><td>1ª</td><td>50%</td></tr>
+<tr><td>Feb 2021</td><td>50% adultos con 2ª dosis</td><td>2ª</td><td>50%</td></tr>
+<tr><td>Jul 2021</td><td>Inicio 3ª dosis (booster)</td><td>3ª</td><td>5%</td></tr>
+<tr><td>Dic 2021</td><td>60% con 3ª dosis</td><td>3ª</td><td>60%</td></tr>
+<tr><td>Ene 2022</td><td>Inicio 4ª dosis (mayores 60+)</td><td>4ª</td><td>2%</td></tr>
+<tr><td>2022-2023</td><td>Vacunas bivalentes Ómicron</td><td>5ª</td><td>25%</td></tr>
+</tbody>
+</table>
+</div>
+<div class="citation">
+<h3>📚 Citación</h3>
+<pre>de la Serna, J. M. (2026). Base de Datos del Impacto en la Salud de Israel (2020–2025). Harvard Dataverse. https://doi.org/10.7910/DVN/PL3G1E</pre>
+</div>
+</div>
+<footer><p>DOI: <a href="https://doi.org/10.7910/DVN/PL3G1E">10.7910/DVN/PL3G1E</a> | Juan Moises de la Serna | CC0 1.0</p></footer>
+<script>
+const meses=['Dic-20','Ene-21','Feb-21','Mar-21','Abr-21','May-21','Jun-21','Jul-21','Ago-21','Sep-21'];
+Plotly.newPlot('chartVac',[
+  {x:meses,y:[2,50,60,63,63,64,65,66,68,70],name:'1ª dosis',type:'scatter',mode:'lines+markers',line:{color:'#d2a8ff',width:3},marker:{size:7}},
+  {x:meses,y:[0,10,50,57,59,61,62,63,64,65],name:'2ª dosis',type:'scatter',mode:'lines+markers',line:{color:'#58a6ff',width:3},marker:{size:7}},
+  {x:meses,y:[0,0,0,0,0,0,0,5,20,40],name:'3ª dosis',type:'scatter',mode:'lines+markers',line:{color:'#3fb950',width:3},marker:{size:7}}
+],{
+  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
+  legend:{bgcolor:'#21262d'},xaxis:{gridcolor:'#21262d'},
+  yaxis:{gridcolor:'#21262d',title:'% población elegible',range:[0,100]},
+  margin:{t:20,r:40,b:60,l:60}
+},{responsive:true});
+
+Plotly.newPlot('chartVeloc',[{
+  type:'bar',orientation:'h',
+  y:['Israel','Reino Unido','EE.UU.','Alemania','Francia','España','Italia'],
+  x:[62,35,28,12,10,8,7],
+  marker:{color:['#d2a8ff','#58a6ff','#3fb950','#ffa657','#79c0ff','#ff79c6','#f78166']},
+  text:['62','35','28','12','10','8','7'].map(v=>v+' dosis/100'),
+  textposition:'outside'
+}],{
+  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
+  xaxis:{gridcolor:'#21262d',title:'Dosis por 100 hab. (primer mes)'},
+  yaxis:{gridcolor:'#21262d'},margin:{t:20,r:120,b:60,l:100}
+},{responsive:true});
+</script>
+</body>
+</html>
