@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Israel vs. OCDE: Comparativa de Salud | Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+nav{background:#161b22;border-bottom:1px solid #30363d;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+nav a{color:#58a6ff;text-decoration:none;font-size:12px;padding:4px 8px;border-radius:4px;white-space:nowrap;}
+nav a:hover{background:#21262d;}
+nav .brand{color:#e6edf3;font-weight:700;font-size:14px;margin-right:8px;}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px;}
+h1{color:#58a6ff;font-size:1.8em;margin-bottom:12px;}
+.abstract{background:#161b22;border:1px solid #30363d;border-left:4px solid #58a6ff;border-radius:8px;padding:24px;margin-bottom:32px;}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px;}
+.kpi{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;text-align:center;}
+.kpi .val{font-size:1.8em;font-weight:700;color:#58a6ff;}
+.kpi .lbl{font-size:11px;color:#8b949e;margin-top:4px;}
+.chart-box{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+.chart-box h3{color:#e6edf3;margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;margin-top:16px;}
+th{background:#21262d;color:#8b949e;padding:10px;text-align:left;font-size:12px;}
+td{padding:10px;border-bottom:1px solid #21262d;font-size:13px;}
+tr:hover td{background:#161b22;}
+.citation pre{background:#0d1117;padding:12px;border-radius:6px;font-size:12px;color:#8b949e;overflow-x:auto;white-space:pre-wrap;}
+.citation{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+footer{background:#161b22;border-top:1px solid #30363d;padding:20px;text-align:center;color:#8b949e;font-size:13px;}
+footer a{color:#58a6ff;text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+<span class="brand">🏥 Israel Health 2020-2025</span>
+<a href="index.html">Inicio</a>
+<a href="esperanza-vida.html">Esperanza de Vida</a>
+<a href="mortalidad.html">Mortalidad</a>
+<a href="covid19.html">COVID-19</a>
+<a href="vacunacion.html">Vacunación</a>
+<a href="salud-mental.html">Salud Mental</a>
+<a href="guerra-salud.html">Guerra & Salud</a>
+<a href="sistema-salud.html">Sistema Sanitario</a>
+<a href="enfermedades-cronicas.html">Enf. Crónicas</a>
+<a href="comparativa-ocde.html">OCDE Comparativa</a>
+<a href="factores-riesgo.html">Factores Riesgo</a>
+<a href="gasto-sanitario.html">Gasto Sanitario</a>
+<a href="indicadores-clave.html">Indicadores Clave</a>
+<a href="tendencias.html">Tendencias</a>
+<a href="poblacion.html">Población</a>
+<a href="metodologia.html">Metodología</a>
+<a href="datos.html">Datos</a>
+<a href="sitemap.html">Sitemap</a>
+</nav>
+<div class="container">
+<h1>🌍 Israel vs. OCDE: Clasificaciones y Comparativas (2024)</h1>
+<div class="abstract">
+<h2 style="color:#58a6ff;margin-bottom:10px;">Resumen</h2>
+<p>Israel ocupa posiciones destacadas entre los 38 miembros de la OCDE en indicadores de resultados de salud, especialmente en esperanza de vida (top 5 global, 3ª para mujeres) y mortalidad infantil. Sin embargo, se sitúa por debajo de la media en infraestructura hospitalaria (camas/1.000) y cobertura de enfermería. El gasto sanitario per cápita ($3.820) está por debajo de la media OCDE ($4.650), lo que hace sus resultados especialmente eficientes. Fuentes: OCDE Health Statistics 2024, WHO. <strong>DOI: 10.7910/DVN/PL3G1E</strong></p>
+</div>
+<div class="kpi-grid">
+<div class="kpi"><div class="val">5ª</div><div class="lbl">Esperanza vida total (OCDE)</div></div>
+<div class="kpi"><div class="val">3ª</div><div class="lbl">Esperanza vida mujeres (OCDE)</div></div>
+<div class="kpi"><div class="val">15ª</div><div class="lbl">Mortalidad infantil (OCDE)</div></div>
+<div class="kpi"><div class="val">28ª</div><div class="lbl">Camas hospitalarias (OCDE)</div></div>
+<div class="kpi"><div class="val">22ª</div><div class="lbl">Gasto per cápita (OCDE)</div></div>
+<div class="kpi"><div class="val">9ª</div><div class="lbl">Eficiencia del sistema (OCDE)</div></div>
+</div>
+<div class="chart-box">
+<h3>📊 Ranking OCDE: Esperanza de Vida Total 2024 (países seleccionados)</h3>
+<div id="chartRankEV" style="height:460px;"></div>
+</div>
+<div class="chart-box">
+<h3>🕸️ Perfil de Salud Israel vs. Media OCDE (Radar)</h3>
+<div id="chartRadar" style="height:400px;"></div>
+</div>
+<div class="chart-box">
+<h3>📋 Posición de Israel en Rankings OCDE 2024</h3>
+<table>
+<thead><tr><th>Indicador</th><th>Valor Israel</th><th>Media OCDE</th><th>Ranking</th><th>Tendencia</th></tr></thead>
+<tbody>
+<tr><td>Esperanza de vida total</td><td>83.1</td><td>80.5</td><td>5ª/38</td><td>↑</td></tr>
+<tr><td>Esperanza vida mujeres</td><td>84.9</td><td>83.0</td><td>3ª/38</td><td>↑</td></tr>
+<tr><td>Mortalidad infantil/1.000</td><td>3.1</td><td>4.2</td><td>15ª/38</td><td>→</td></tr>
+<tr><td>Gasto sanitario % PIB</td><td>8.2</td><td>9.2</td><td>22ª/38</td><td>↑</td></tr>
+<tr><td>Médicos/1.000</td><td>3.1</td><td>3.6</td><td>24ª/38</td><td>→</td></tr>
+<tr><td>Camas/1.000</td><td>2.2</td><td>4.3</td><td>28ª/38</td><td>→</td></tr>
+</tbody>
+</table>
+</div>
+<div class="citation">
+<h3>📚 Citación</h3>
+<pre>de la Serna, J. M. (2026). Base de Datos del Impacto en la Salud de Israel (2020–2025). Harvard Dataverse. https://doi.org/10.7910/DVN/PL3G1E</pre>
+</div>
+</div>
+<footer><p>DOI: <a href="https://doi.org/10.7910/DVN/PL3G1E">10.7910/DVN/PL3G1E</a> | Juan Moises de la Serna | CC0 1.0</p></footer>
+<script>
+Plotly.newPlot('chartRankEV',[{
+  type:'bar',orientation:'h',
+  y:['Australia','España','Suiza','Japón','Israel','Italia','Noruega','Francia','Media OCDE','EE.UU.','Hungría'],
+  x:[83.3,83.2,83.2,83.2,83.1,82.9,82.8,82.6,80.5,78.5,75.2],
+  marker:{color:['#3fb950','#3fb950','#3fb950','#3fb950','#58a6ff','#3fb950','#3fb950','#3fb950','#ffa657','#ff6b6b','#ff6b6b']},
+  text:[83.3,83.2,83.2,83.2,83.1,82.9,82.8,82.6,80.5,78.5,75.2].map(v=>v+' años'),
+  textposition:'outside'
+}],{
+  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
+  xaxis:{gridcolor:'#21262d',title:'Años',range:[73,85]},
+  yaxis:{gridcolor:'#21262d'},margin:{t:20,r:100,b:50,l:100}
+},{responsive:true});
+
+Plotly.newPlot('chartRadar',[
+  {type:'scatterpolar',r:[90,75,85,65,72,88,82],theta:['Esperanza vida','Gasto %PIB','Mort. infantil','Camas/1.000','Médicos/1.000','Vacunación','Enf. crónicas'],fill:'toself',name:'Israel',line:{color:'#58a6ff'},fillcolor:'rgba(88,166,255,0.2)'},
+  {type:'scatterpolar',r:[76,79,74,72,72,72,70],theta:['Esperanza vida','Gasto %PIB','Mort. infantil','Camas/1.000','Médicos/1.000','Vacunación','Enf. crónicas'],fill:'toself',name:'Media OCDE',line:{color:'#ffa657'},fillcolor:'rgba(255,166,87,0.2)'}
+],{
+  polar:{bgcolor:'#0d1117',radialaxis:{gridcolor:'#30363d',color:'#8b949e'},angularaxis:{gridcolor:'#30363d',color:'#8b949e'}},
+  paper_bgcolor:'#161b22',font:{color:'#e6edf3'},
+  legend:{bgcolor:'#21262d'},margin:{t:30,r:80,b:30,l:80}
+},{responsive:true});
+</script>
+</body>
+</html>
