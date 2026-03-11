@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodología | Israel Health Impact Dataset</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+nav{background:#161b22;border-bottom:1px solid #30363d;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+nav a{color:#58a6ff;text-decoration:none;font-size:12px;padding:4px 8px;border-radius:4px;white-space:nowrap;}
+nav a:hover{background:#21262d;}
+nav .brand{color:#e6edf3;font-weight:700;font-size:14px;margin-right:8px;}
+.container{max-width:900px;margin:0 auto;padding:24px 20px;}
+h1{color:#8b949e;font-size:1.8em;margin-bottom:12px;}
+h2{color:#58a6ff;font-size:1.2em;margin:24px 0 12px;}
+.section{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:24px;margin-bottom:24px;}
+.source-item{border-bottom:1px solid #21262d;padding:12px 0;}
+.source-item:last-child{border-bottom:none;}
+.source-name{color:#58a6ff;font-weight:600;}
+.citation pre{background:#0d1117;padding:12px;border-radius:6px;font-size:12px;color:#8b949e;overflow-x:auto;white-space:pre-wrap;}
+.citation{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+footer{background:#161b22;border-top:1px solid #30363d;padding:20px;text-align:center;color:#8b949e;font-size:13px;}
+footer a{color:#58a6ff;text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+<span class="brand">🏥 Israel Health 2020-2025</span>
+<a href="index.html">Inicio</a>
+<a href="esperanza-vida.html">Esperanza de Vida</a>
+<a href="mortalidad.html">Mortalidad</a>
+<a href="covid19.html">COVID-19</a>
+<a href="vacunacion.html">Vacunación</a>
+<a href="salud-mental.html">Salud Mental</a>
+<a href="guerra-salud.html">Guerra & Salud</a>
+<a href="sistema-salud.html">Sistema Sanitario</a>
+<a href="enfermedades-cronicas.html">Enf. Crónicas</a>
+<a href="comparativa-ocde.html">OCDE Comparativa</a>
+<a href="factores-riesgo.html">Factores Riesgo</a>
+<a href="gasto-sanitario.html">Gasto Sanitario</a>
+<a href="indicadores-clave.html">Indicadores Clave</a>
+<a href="tendencias.html">Tendencias</a>
+<a href="poblacion.html">Población</a>
+<a href="metodologia.html">Metodología</a>
+<a href="datos.html">Datos</a>
+<a href="sitemap.html">Sitemap</a>
+</nav>
+<div class="container">
+<h1>🔬 Metodología del Dataset</h1>
+<div class="section">
+<h2>📋 Descripción del Dataset</h2>
+<p>El dataset "Base de Datos del Impacto en la Salud de Israel (2020–2025)" compila datos sobre el impacto en salud pública de Israel durante el período 2020-2025, con especial énfasis en tres eventos extraordinarios: la pandemia de COVID-19, la campaña de vacunación masiva y el conflicto bélico iniciado el 7 de octubre de 2023.</p>
+<p style="margin-top:12px;"><strong>Estructura:</strong> 1 archivo TAB • 10 variables • 27 observaciones • Licencia CC0 1.0</p>
+</div>
+<div class="section">
+<h2>🗄️ Fuentes de Datos</h2>
+<div class="source-item"><span class="source-name">Centro Taub</span> — Think tank independiente israelí especializado en bienestar social y política económica. Estadísticas de salud anuales de Israel 2020-2025.</div>
+<div class="source-item"><span class="source-name">PMC/NIH (PubMed Central)</span> — Artículos de investigación sobre COVID-19 en Israel, impacto vacunación, salud mental post-pandemia y post-guerra.</div>
+<div class="source-item"><span class="source-name">Times of Israel</span> — Reportes sobre impacto sanitario del conflicto 7-Oct-2023, estadísticas del Ministerio de Salud.</div>
+<div class="source-item"><span class="source-name">OMS/WHO</span> — Indicadores de salud globales, perfiles de salud de países OCDE, estadísticas de mortalidad.</div>
+<div class="source-item"><span class="source-name">OCDE Health Statistics</span> — Rankings comparativos, esperanza de vida, gasto sanitario, recursos hospitalarios.</div>
+<div class="source-item"><span class="source-name">Watson Brown Costs of War</span> — Impacto sanitario y económico de conflictos bélicos contemporáneos.</div>
+<div class="source-item"><span class="source-name">Global Nutrition Report</span> — Indicadores de nutrición, obesidad, enfermedades crónicas relacionadas con dieta.</div>
+<div class="source-item"><span class="source-name">Jerusalem Post</span> — Estadísticas del sistema de salud israelí, datos de hospitales y cobertura sanitaria.</div>
+</div>
+<div class="section">
+<h2>⚙️ Proceso de Recopilación</h2>
+<p>Los datos fueron recopilados mediante consultas estructuradas a Perplexity AI con verificación cruzada en las fuentes primarias mencionadas. El proceso incluyó: (1) Definición de variables clave de interés, (2) Búsqueda sistemática en bases de datos académicas y oficiales, (3) Verificación de coherencia entre fuentes, (4) Estandarización de unidades y formatos, (5) Depuración y validación del dataset final.</p>
+</div>
+<div class="section">
+<h2>⚠️ Limitaciones</h2>
+<p>Los datos de 2025 son preliminares o proyecciones. Los datos del conflicto bélico están sujetos a actualizaciones. Las estadísticas de salud mental se basan en estudios de muestra, no en registros administrativos completos. La comparación internacional puede estar afectada por diferencias metodológicas entre países en la definición de indicadores.</p>
+</div>
+<div class="citation">
+<h3>📚 Citación</h3>
+<pre>de la Serna, J. M. (2026). Base de Datos del Impacto en la Salud de Israel (2020–2025): Índices Clave, Factores de Influencia y Comparaciones con la OCDE. Harvard Dataverse. https://doi.org/10.7910/DVN/PL3G1E</pre>
+</div>
+</div>
+<footer><p>DOI: <a href="https://doi.org/10.7910/DVN/PL3G1E">10.7910/DVN/PL3G1E</a> | Juan Moises de la Serna | ORCID: 0000-0002-8401-8018 | CC0 1.0</p></footer>
+</body>
+</html>
