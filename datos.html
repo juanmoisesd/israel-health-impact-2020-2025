@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acceso a Datos | Israel Health Impact Dataset</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+nav{background:#161b22;border-bottom:1px solid #30363d;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+nav a{color:#58a6ff;text-decoration:none;font-size:12px;padding:4px 8px;border-radius:4px;white-space:nowrap;}
+nav a:hover{background:#21262d;}
+nav .brand{color:#e6edf3;font-weight:700;font-size:14px;margin-right:8px;}
+.container{max-width:900px;margin:0 auto;padding:24px 20px;}
+h1{color:#3fb950;font-size:1.8em;margin-bottom:12px;}
+h2{color:#58a6ff;font-size:1.2em;margin:24px 0 12px;}
+.section{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:24px;margin-bottom:24px;}
+.btn{display:inline-block;background:#238636;color:#fff;padding:10px 20px;border-radius:6px;text-decoration:none;margin:8px 0;font-size:14px;}
+.btn:hover{background:#2ea043;}
+.btn-secondary{background:#21262d;border:1px solid #30363d;}
+.btn-secondary:hover{background:#30363d;}
+table{width:100%;border-collapse:collapse;margin-top:16px;}
+th{background:#21262d;color:#8b949e;padding:10px;text-align:left;font-size:12px;}
+td{padding:10px;border-bottom:1px solid #21262d;font-size:13px;}
+tr:hover td{background:#21262d;}
+.citation pre{background:#0d1117;padding:12px;border-radius:6px;font-size:12px;color:#8b949e;overflow-x:auto;white-space:pre-wrap;}
+.citation{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+footer{background:#161b22;border-top:1px solid #30363d;padding:20px;text-align:center;color:#8b949e;font-size:13px;}
+footer a{color:#58a6ff;text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+<span class="brand">🏥 Israel Health 2020-2025</span>
+<a href="index.html">Inicio</a>
+<a href="esperanza-vida.html">Esperanza de Vida</a>
+<a href="mortalidad.html">Mortalidad</a>
+<a href="covid19.html">COVID-19</a>
+<a href="vacunacion.html">Vacunación</a>
+<a href="salud-mental.html">Salud Mental</a>
+<a href="guerra-salud.html">Guerra & Salud</a>
+<a href="sistema-salud.html">Sistema Sanitario</a>
+<a href="enfermedades-cronicas.html">Enf. Crónicas</a>
+<a href="comparativa-ocde.html">OCDE Comparativa</a>
+<a href="factores-riesgo.html">Factores Riesgo</a>
+<a href="gasto-sanitario.html">Gasto Sanitario</a>
+<a href="indicadores-clave.html">Indicadores Clave</a>
+<a href="tendencias.html">Tendencias</a>
+<a href="poblacion.html">Población</a>
+<a href="metodologia.html">Metodología</a>
+<a href="datos.html">Datos</a>
+<a href="sitemap.html">Sitemap</a>
+</nav>
+<div class="container">
+<h1>📁 Acceso al Dataset Completo</h1>
+<div class="section">
+<h2>🔗 Repositorio Oficial</h2>
+<p><strong>DOI:</strong> <a href="https://doi.org/10.7910/DVN/PL3G1E" style="color:#58a6ff;">10.7910/DVN/PL3G1E</a></p>
+<p><strong>Repositorio:</strong> Harvard Dataverse</p>
+<p><strong>Título:</strong> Base de Datos del Impacto en la Salud de Israel (2020–2025): Índices Clave, Factores de Influencia y Comparaciones con la OCDE</p>
+<p><strong>Autor:</strong> de la Serna, Juan Moises (UNIR — International University of La Rioja)</p>
+<p><strong>ORCID:</strong> <a href="https://orcid.org/0000-0002-8401-8018" style="color:#58a6ff;">0000-0002-8401-8018</a></p>
+<a href="https://doi.org/10.7910/DVN/PL3G1E" class="btn">⬇️ Descargar Dataset (Harvard Dataverse)</a>
+</div>
+<div class="section">
+<h2>📊 Estructura del Dataset</h2>
+<table>
+<thead><tr><th>Archivo</th><th>Formato</th><th>Tamaño</th><th>Variables</th><th>Observaciones</th></tr></thead>
+<tbody>
+<tr><td>impacto_salud_israel_2020_2025.tab</td><td>TAB/CSV</td><td>2.6 KB</td><td>10</td><td>27</td></tr>
+</tbody>
+</table>
+<h2>🗂️ Variables del Dataset</h2>
+<table>
+<thead><tr><th>#</th><th>Variable</th><th>Tipo</th><th>Descripción</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>año</td><td>Numérica</td><td>Año de observación (2020-2025)</td></tr>
+<tr><td>2</td><td>indicador</td><td>Texto</td><td>Nombre del indicador de salud</td></tr>
+<tr><td>3</td><td>categoria</td><td>Texto</td><td>Categoría temática (8 categorías)</td></tr>
+<tr><td>4</td><td>valor</td><td>Numérica</td><td>Valor del indicador</td></tr>
+<tr><td>5</td><td>unidad</td><td>Texto</td><td>Unidad de medida</td></tr>
+<tr><td>6</td><td>fuente</td><td>Texto</td><td>Fuente primaria del dato</td></tr>
+<tr><td>7</td><td>genero</td><td>Texto</td><td>Total/Hombres/Mujeres</td></tr>
+<tr><td>8</td><td>valor_ocde</td><td>Numérica</td><td>Media OCDE para comparativa</td></tr>
+<tr><td>9</td><td>ranking_ocde</td><td>Numérica</td><td>Posición de Israel en OCDE (donde aplica)</td></tr>
+<tr><td>10</td><td>notas</td><td>Texto</td><td>Notas metodológicas y aclaraciones</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section">
+<h2>📜 Licencia</h2>
+<p>Este dataset está publicado bajo licencia <strong>CC0 1.0 Universal (Dominio Público)</strong>. Puedes copiar, modificar, distribuir y usar los datos para cualquier propósito, incluyendo usos comerciales, sin pedir permiso. Solo se solicita que se cite adecuadamente.</p>
+</div>
+<div class="citation">
+<h3>📚 Citación APA</h3>
+<pre>de la Serna, J. M. (2026). Base de Datos del Impacto en la Salud de Israel (2020–2025): Índices Clave, Factores de Influencia y Comparaciones con la OCDE. Harvard Dataverse. https://doi.org/10.7910/DVN/PL3G1E</pre>
+<h3 style="margin-top:16px;">BibTeX</h3>
+<pre>@dataset{delaSerna2026israel,
+  author    = {de la Serna, Juan Moises},
+  title     = {Base de Datos del Impacto en la Salud de Israel (2020–2025)},
+  year      = {2026},
+  publisher = {Harvard Dataverse},
+  doi       = {10.7910/DVN/PL3G1E},
+  url       = {https://doi.org/10.7910/DVN/PL3G1E},
+  license   = {CC0 1.0}
+}</pre>
+</div>
+</div>
+<footer><p>DOI: <a href="https://doi.org/10.7910/DVN/PL3G1E">10.7910/DVN/PL3G1E</a> | Juan Moises de la Serna | ORCID: 0000-0002-8401-8018 | CC0 1.0</p></footer>
+</body>
+</html>
