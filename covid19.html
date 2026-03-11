@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COVID-19 en Israel 2020-2023 | Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+nav{background:#161b22;border-bottom:1px solid #30363d;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+nav a{color:#58a6ff;text-decoration:none;font-size:12px;padding:4px 8px;border-radius:4px;white-space:nowrap;}
+nav a:hover{background:#21262d;}
+nav .brand{color:#e6edf3;font-weight:700;font-size:14px;margin-right:8px;}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px;}
+h1{color:#3fb950;font-size:1.8em;margin-bottom:12px;}
+.abstract{background:#161b22;border:1px solid #30363d;border-left:4px solid #3fb950;border-radius:8px;padding:24px;margin-bottom:32px;}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px;}
+.kpi{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;text-align:center;}
+.kpi .val{font-size:1.8em;font-weight:700;color:#3fb950;}
+.kpi .lbl{font-size:11px;color:#8b949e;margin-top:4px;}
+.chart-box{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+.chart-box h3{color:#e6edf3;margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;margin-top:16px;}
+th{background:#21262d;color:#8b949e;padding:10px;text-align:left;font-size:12px;}
+td{padding:10px;border-bottom:1px solid #21262d;font-size:13px;}
+tr:hover td{background:#161b22;}
+.citation pre{background:#0d1117;padding:12px;border-radius:6px;font-size:12px;color:#8b949e;overflow-x:auto;white-space:pre-wrap;}
+.citation{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+footer{background:#161b22;border-top:1px solid #30363d;padding:20px;text-align:center;color:#8b949e;font-size:13px;}
+footer a{color:#58a6ff;text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+<span class="brand">🏥 Israel Health 2020-2025</span>
+<a href="index.html">Inicio</a>
+<a href="esperanza-vida.html">Esperanza de Vida</a>
+<a href="mortalidad.html">Mortalidad</a>
+<a href="covid19.html">COVID-19</a>
+<a href="vacunacion.html">Vacunación</a>
+<a href="salud-mental.html">Salud Mental</a>
+<a href="guerra-salud.html">Guerra & Salud</a>
+<a href="sistema-salud.html">Sistema Sanitario</a>
+<a href="enfermedades-cronicas.html">Enf. Crónicas</a>
+<a href="comparativa-ocde.html">OCDE Comparativa</a>
+<a href="factores-riesgo.html">Factores Riesgo</a>
+<a href="gasto-sanitario.html">Gasto Sanitario</a>
+<a href="indicadores-clave.html">Indicadores Clave</a>
+<a href="tendencias.html">Tendencias</a>
+<a href="poblacion.html">Población</a>
+<a href="metodologia.html">Metodología</a>
+<a href="datos.html">Datos</a>
+<a href="sitemap.html">Sitemap</a>
+</nav>
+<div class="container">
+<h1>🦠 COVID-19 en Israel (2020–2023)</h1>
+<div class="abstract">
+<h2 style="color:#3fb950;margin-bottom:10px;">Resumen</h2>
+<p>Israel fue pionero mundial en la campaña de vacunación masiva contra COVID-19 en diciembre 2020–enero 2021, alcanzando 60% de cobertura en adultos en solo 3 meses. El país experimentó 5 oleadas principales entre 2020 y 2023. El total acumulado fue de ~4.800 muertes confirmadas (49/100.000). Israel demostró que la vacunación masiva redujo la hospitalización en un 85-90% durante la ola Delta. Fuentes: PMC/NIH, Ministerio de Salud de Israel, OMS. <strong>DOI: 10.7910/DVN/PL3G1E</strong></p>
+</div>
+<div class="kpi-grid">
+<div class="kpi"><div class="val">4.8K</div><div class="lbl">Muertes totales COVID</div></div>
+<div class="kpi"><div class="val">49</div><div class="lbl">Muertes /100.000 hab.</div></div>
+<div class="kpi"><div class="val">4.8M</div><div class="lbl">Casos confirmados totales</div></div>
+<div class="kpi"><div class="val">6.8M</div><div class="lbl">Dosis vacunas administradas</div></div>
+<div class="kpi"><div class="val">90%</div><div class="lbl">Reducción hospitaliz. post-vacuna</div></div>
+<div class="kpi"><div class="val">5</div><div class="lbl">Oleadas COVID 2020-2023</div></div>
+</div>
+<div class="chart-box">
+<h3>📊 Casos COVID-19 por Oleada</h3>
+<div id="chartOleadas" style="height:380px;"></div>
+</div>
+<div class="chart-box">
+<h3>💀 Muertes por COVID-19 Mensuales (picos)</h3>
+<div id="chartMuertes" style="height:360px;"></div>
+</div>
+<div class="chart-box">
+<h3>📋 Cronología COVID-19 Israel</h3>
+<table>
+<thead><tr><th>Período</th><th>Oleada</th><th>Casos aprox.</th><th>Muertes</th><th>Variante</th><th>Hito</th></tr></thead>
+<tbody>
+<tr><td>Mar-Jun 2020</td><td>1ª</td><td>18.000</td><td>298</td><td>Wuhan</td><td>1er confinamiento</td></tr>
+<tr><td>Jul-Nov 2020</td><td>2ª</td><td>310.000</td><td>2.900</td><td>Wuhan</td><td>2do confinamiento</td></tr>
+<tr><td>Dic 2020-Feb 2021</td><td>3ª</td><td>450.000</td><td>1.100</td><td>Alpha</td><td>Inicio vacunación</td></tr>
+<tr><td>Ago-Sep 2021</td><td>4ª</td><td>800.000</td><td>300</td><td>Delta</td><td>3ª dosis</td></tr>
+<tr><td>Ene-Feb 2022</td><td>5ª</td><td>3.200.000</td><td>200</td><td>Ómicron</td><td>4ª dosis</td></tr>
+</tbody>
+</table>
+</div>
+<div class="citation">
+<h3>📚 Citación</h3>
+<pre>de la Serna, J. M. (2026). Base de Datos del Impacto en la Salud de Israel (2020–2025). Harvard Dataverse. https://doi.org/10.7910/DVN/PL3G1E</pre>
+</div>
+</div>
+<footer><p>DOI: <a href="https://doi.org/10.7910/DVN/PL3G1E">10.7910/DVN/PL3G1E</a> | Juan Moises de la Serna | CC0 1.0</p></footer>
+<script>
+Plotly.newPlot('chartOleadas',[{
+  type:'bar',
+  x:['1ª (2020)','2ª (2020)','3ª (2020-21)','4ª (2021)','5ª (2022)'],
+  y:[18000,310000,450000,800000,3200000],
+  marker:{color:['#3fb950','#ffa657','#ff6b6b','#d2a8ff','#58a6ff']},
+  text:[18000,310000,450000,800000,3200000].map(v=>(v/1000).toFixed(0)+'K'),
+  textposition:'outside'
+}],{
+  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
+  xaxis:{gridcolor:'#21262d'},yaxis:{gridcolor:'#21262d',title:'Casos'},
+  margin:{t:20,r:40,b:60,l:80}
+},{responsive:true});
+
+Plotly.newPlot('chartMuertes',[
+  {x:['Abr20','Sep20','Oct20','Nov20','Feb21','Sep21','Oct21','Feb22','Mar22'],
+   y:[40,80,200,280,180,120,90,60,25],
+   type:'scatter',mode:'lines+markers',fill:'tozeroy',
+   line:{color:'#ff6b6b',width:2},fillcolor:'rgba(255,107,107,0.2)',
+   name:'Muertes mensuales aprox.'},
+  {x:['Dic20'],y:[0],type:'scatter',mode:'markers',
+   marker:{symbol:'star',size:15,color:'#ffd700'},name:'Inicio vacunación'}
+],{
+  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
+  legend:{bgcolor:'#21262d'},xaxis:{gridcolor:'#21262d'},
+  yaxis:{gridcolor:'#21262d',title:'Fallecidos'},
+  margin:{t:20,r:40,b:60,l:60}
+},{responsive:true});
+</script>
+</body>
+</html>
