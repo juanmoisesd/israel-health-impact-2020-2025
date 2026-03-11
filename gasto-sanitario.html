@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gasto Sanitario en Israel 2020-2025 | Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+nav{background:#161b22;border-bottom:1px solid #30363d;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+nav a{color:#58a6ff;text-decoration:none;font-size:12px;padding:4px 8px;border-radius:4px;white-space:nowrap;}
+nav a:hover{background:#21262d;}
+nav .brand{color:#e6edf3;font-weight:700;font-size:14px;margin-right:8px;}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px;}
+h1{color:#3fb950;font-size:1.8em;margin-bottom:12px;}
+.abstract{background:#161b22;border:1px solid #30363d;border-left:4px solid #3fb950;border-radius:8px;padding:24px;margin-bottom:32px;}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px;}
+.kpi{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;text-align:center;}
+.kpi .val{font-size:1.8em;font-weight:700;color:#3fb950;}
+.kpi .lbl{font-size:11px;color:#8b949e;margin-top:4px;}
+.chart-box{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+.chart-box h3{color:#e6edf3;margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;margin-top:16px;}
+th{background:#21262d;color:#8b949e;padding:10px;text-align:left;font-size:12px;}
+td{padding:10px;border-bottom:1px solid #21262d;font-size:13px;}
+tr:hover td{background:#161b22;}
+.citation pre{background:#0d1117;padding:12px;border-radius:6px;font-size:12px;color:#8b949e;overflow-x:auto;white-space:pre-wrap;}
+.citation{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+footer{background:#161b22;border-top:1px solid #30363d;padding:20px;text-align:center;color:#8b949e;font-size:13px;}
+footer a{color:#58a6ff;text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+<span class="brand">🏥 Israel Health 2020-2025</span>
+<a href="index.html">Inicio</a>
+<a href="esperanza-vida.html">Esperanza de Vida</a>
+<a href="mortalidad.html">Mortalidad</a>
+<a href="covid19.html">COVID-19</a>
+<a href="vacunacion.html">Vacunación</a>
+<a href="salud-mental.html">Salud Mental</a>
+<a href="guerra-salud.html">Guerra & Salud</a>
+<a href="sistema-salud.html">Sistema Sanitario</a>
+<a href="enfermedades-cronicas.html">Enf. Crónicas</a>
+<a href="comparativa-ocde.html">OCDE Comparativa</a>
+<a href="factores-riesgo.html">Factores Riesgo</a>
+<a href="gasto-sanitario.html">Gasto Sanitario</a>
+<a href="indicadores-clave.html">Indicadores Clave</a>
+<a href="tendencias.html">Tendencias</a>
+<a href="poblacion.html">Población</a>
+<a href="metodologia.html">Metodología</a>
+<a href="datos.html">Datos</a>
+<a href="sitemap.html">Sitemap</a>
+</nav>
+<div class="container">
+<h1>💰 Gasto Sanitario en Israel (2020–2025)</h1>
+<div class="abstract">
+<h2 style="color:#3fb950;margin-bottom:10px;">Resumen</h2>
+<p>El gasto sanitario de Israel asciende al 8.2% del PIB en 2024, con un gasto per cápita de $3.820 USD (PPA), inferior a la media OCDE de $4.650. Sin embargo, los resultados de salud obtenidos por Israel son superiores a muchos países que gastan significativamente más, lo que sitúa al sistema israelí entre los más eficientes de la OCDE. El gasto público representa el 67% del total; el privado el 33%. La pandemia COVID-19 y el conflicto bélico generaron incrementos excepcionales en el presupuesto sanitario 2020-2021 y 2023-2024. Fuentes: OCDE, Taub Center. <strong>DOI: 10.7910/DVN/PL3G1E</strong></p>
+</div>
+<div class="kpi-grid">
+<div class="kpi"><div class="val">8.2%</div><div class="lbl">% PIB gasto sanitario 2024</div></div>
+<div class="kpi"><div class="val">$3.820</div><div class="lbl">Gasto per cápita USD PPA</div></div>
+<div class="kpi"><div class="val">67%</div><div class="lbl">Gasto público /total</div></div>
+<div class="kpi"><div class="val">33%</div><div class="lbl">Gasto privado /total</div></div>
+<div class="kpi"><div class="val">9ª</div><div class="lbl">Eficiencia sanitaria OCDE</div></div>
+<div class="kpi"><div class="val">+0.4pp</div><div class="lbl">Aumento % PIB 2020-2024</div></div>
+</div>
+<div class="chart-box">
+<h3>📊 Gasto Sanitario % PIB: Israel vs. OCDE 2020–2025</h3>
+<div id="chartGasto" style="height:380px;"></div>
+</div>
+<div class="chart-box">
+<h3>💵 Gasto per cápita: Países OCDE seleccionados (2024, USD PPA)</h3>
+<div id="chartPerCapita" style="height:380px;"></div>
+</div>
+<div class="chart-box">
+<h3>📋 Desglose del Gasto Sanitario Israel</h3>
+<table>
+<thead><tr><th>Año</th><th>% PIB</th><th>Per cápita $</th><th>Gasto público %</th><th>Gasto privado %</th></tr></thead>
+<tbody>
+<tr><td>2020</td><td>7.9</td><td>2.980</td><td>66</td><td>34</td></tr>
+<tr><td>2021</td><td>8.1</td><td>3.120</td><td>67</td><td>33</td></tr>
+<tr><td>2022</td><td>8.0</td><td>3.340</td><td>66</td><td>34</td></tr>
+<tr><td>2023</td><td>8.1</td><td>3.580</td><td>67</td><td>33</td></tr>
+<tr><td>2024</td><td>8.2</td><td>3.820</td><td>67</td><td>33</td></tr>
+<tr><td>2025*</td><td>8.4</td><td>4.050</td><td>68</td><td>32</td></tr>
+</tbody>
+</table>
+</div>
+<div class="citation">
+<h3>📚 Citación</h3>
+<pre>de la Serna, J. M. (2026). Base de Datos del Impacto en la Salud de Israel (2020–2025). Harvard Dataverse. https://doi.org/10.7910/DVN/PL3G1E</pre>
+</div>
+</div>
+<footer><p>DOI: <a href="https://doi.org/10.7910/DVN/PL3G1E">10.7910/DVN/PL3G1E</a> | Juan Moises de la Serna | CC0 1.0</p></footer>
+<script>
+const años=[2020,2021,2022,2023,2024,2025];
+Plotly.newPlot('chartGasto',[
+  {x:años,y:[7.9,8.1,8.0,8.1,8.2,8.4],name:'Israel % PIB',type:'scatter',mode:'lines+markers',line:{color:'#3fb950',width:3},marker:{size:8}},
+  {x:años,y:[8.8,9.0,9.0,9.1,9.2,9.2],name:'Media OCDE',type:'scatter',mode:'lines',line:{color:'#ffa657',width:2,dash:'dash'}},
+  {x:años,y:[17.0,17.8,17.3,17.2,17.1,17.0],name:'EE.UU.',type:'scatter',mode:'lines',line:{color:'#ff6b6b',width:2,dash:'dot'}}
+],{
+  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
+  legend:{bgcolor:'#21262d'},xaxis:{gridcolor:'#21262d'},
+  yaxis:{gridcolor:'#21262d',title:'% PIB'},
+  margin:{t:20,r:40,b:50,l:60}
+},{responsive:true});
+
+Plotly.newPlot('chartPerCapita',[{
+  type:'bar',orientation:'h',
+  y:['Suiza','EE.UU.','Alemania','Noruega','Media OCDE','Francia','UK','España','Israel','Italia','México'],
+  x:[7179,12318,6731,7700,4650,5557,4312,3612,3820,3394,1237],
+  marker:{color:['#3fb950','#ff6b6b','#3fb950','#3fb950','#ffa657','#3fb950','#3fb950','#ffa657','#58a6ff','#ffa657','#ff6b6b']},
+  text:[7179,12318,6731,7700,4650,5557,4312,3612,3820,3394,1237].map(v=>'$'+v.toLocaleString()),
+  textposition:'outside'
+}],{
+  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
+  xaxis:{gridcolor:'#21262d',title:'USD PPA'},
+  yaxis:{gridcolor:'#21262d'},margin:{t:20,r:100,b:60,l:100}
+},{responsive:true});
+</script>
+</body>
+</html>
