@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esperanza de Vida en Israel 2020-2025 | Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
+nav{background:#161b22;border-bottom:1px solid #30363d;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+nav a{color:#58a6ff;text-decoration:none;font-size:12px;padding:4px 8px;border-radius:4px;white-space:nowrap;}
+nav a:hover{background:#21262d;}
+nav .brand{color:#e6edf3;font-weight:700;font-size:14px;margin-right:8px;}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px;}
+h1{color:#58a6ff;font-size:1.8em;margin-bottom:12px;}
+.abstract{background:#161b22;border:1px solid #30363d;border-left:4px solid #58a6ff;border-radius:8px;padding:24px;margin-bottom:32px;}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px;}
+.kpi{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;text-align:center;}
+.kpi .val{font-size:1.8em;font-weight:700;color:#58a6ff;}
+.kpi .lbl{font-size:11px;color:#8b949e;margin-top:4px;}
+.chart-box{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+.chart-box h3{color:#e6edf3;margin-bottom:16px;}
+table{width:100%;border-collapse:collapse;margin-top:16px;}
+th{background:#21262d;color:#8b949e;padding:10px;text-align:left;font-size:12px;}
+td{padding:10px;border-bottom:1px solid #21262d;font-size:13px;}
+tr:hover td{background:#161b22;}
+.citation{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
+.citation pre{background:#0d1117;padding:12px;border-radius:6px;font-size:12px;color:#8b949e;overflow-x:auto;white-space:pre-wrap;}
+footer{background:#161b22;border-top:1px solid #30363d;padding:20px;text-align:center;color:#8b949e;font-size:13px;}
+footer a{color:#58a6ff;text-decoration:none;}
+</style>
+</head>
+<body>
+<nav>
+<span class="brand">🏥 Israel Health 2020-2025</span>
+<a href="index.html">Inicio</a>
+<a href="esperanza-vida.html">Esperanza de Vida</a>
+<a href="mortalidad.html">Mortalidad</a>
+<a href="covid19.html">COVID-19</a>
+<a href="vacunacion.html">Vacunación</a>
+<a href="salud-mental.html">Salud Mental</a>
+<a href="guerra-salud.html">Guerra & Salud</a>
+<a href="sistema-salud.html">Sistema Sanitario</a>
+<a href="enfermedades-cronicas.html">Enf. Crónicas</a>
+<a href="comparativa-ocde.html">OCDE Comparativa</a>
+<a href="factores-riesgo.html">Factores Riesgo</a>
+<a href="gasto-sanitario.html">Gasto Sanitario</a>
+<a href="indicadores-clave.html">Indicadores Clave</a>
+<a href="tendencias.html">Tendencias</a>
+<a href="poblacion.html">Población</a>
+<a href="metodologia.html">Metodología</a>
+<a href="datos.html">Datos</a>
+<a href="sitemap.html">Sitemap</a>
+</nav>
+<div class="container">
+<h1>📈 Esperanza de Vida en Israel (2020–2025)</h1>
+<div class="abstract">
+<h2 style="color:#58a6ff;margin-bottom:10px;">Resumen</h2>
+<p>Israel mantiene una de las esperanzas de vida más altas del mundo, superando la media OCDE en todos los años analizados. A pesar del impacto de la pandemia COVID-19 en 2021 (descenso de 0.3 años), la tendencia general es de recuperación y crecimiento, alcanzando 83.1 años en 2024. Las mujeres presentan sistemáticamente 3.2-3.5 años más de esperanza de vida que los hombres. Las fuentes incluyen datos del Centro Taub, OMS y comparativas OCDE 2020-2025. <strong>DOI: 10.7910/DVN/PL3G1E</strong></p>
+</div>
+<div class="kpi-grid">
+<div class="kpi"><div class="val">83.1</div><div class="lbl">Esperanza de vida total 2024</div></div>
+<div class="kpi"><div class="val">84.9</div><div class="lbl">Mujeres 2024</div></div>
+<div class="kpi"><div class="val">81.4</div><div class="lbl">Hombres 2024</div></div>
+<div class="kpi"><div class="val">+1.0</div><div class="lbl">Aumento 2020-2024 (años)</div></div>
+<div class="kpi"><div class="val">3ª</div><div class="lbl">Posición OCDE (mujeres)</div></div>
+<div class="kpi"><div class="val">80.5</div><div class="lbl">Media OCDE 2024</div></div>
+</div>
+<div class="chart-box">
+<h3>📊 Evolución de la Esperanza de Vida 2020–2025 por Género</h3>
+<div id="chartEV" style="height:400px;"></div>
+</div>
+<div class="chart-box">
+<h3>🌍 Comparativa Israel vs. Media OCDE</h3>
+<div id="chartComp" style="height:360px;"></div>
+</div>
+<div class="chart-box">
+<h3>📋 Datos Anuales</h3>
+<table>
+<thead><tr><th>Año</th><th>Total</th><th>Mujeres</th><th>Hombres</th><th>Brecha género</th><th>vs. OCDE</th></tr></thead>
+<tbody>
+<tr><td>2020</td><td>82.1</td><td>83.7</td><td>80.5</td><td>3.2</td><td>+1.5</td></tr>
+<tr><td>2021</td><td>81.8</td><td>83.4</td><td>80.2</td><td>3.2</td><td>+1.3</td></tr>
+<tr><td>2022</td><td>82.5</td><td>84.1</td><td>80.9</td><td>3.2</td><td>+1.9</td></tr>
+<tr><td>2023</td><td>82.8</td><td>84.5</td><td>81.1</td><td>3.4</td><td>+2.1</td></tr>
+<tr><td>2024</td><td>83.1</td><td>84.9</td><td>81.4</td><td>3.5</td><td>+2.6</td></tr>
+<tr><td>2025*</td><td>83.3</td><td>85.1</td><td>81.6</td><td>3.5</td><td>+2.7</td></tr>
+</tbody>
+</table>
+<p style="color:#8b949e;font-size:12px;margin-top:8px;">*2025: proyección preliminar. Fuente: Centro Taub/OMS/OCDE</p>
+</div>
+<div class="citation">
+<h3>📚 Citación</h3>
+<pre>de la Serna, J. M. (2026). Base de Datos del Impacto en la Salud de Israel (2020–2025). Harvard Dataverse. https://doi.org/10.7910/DVN/PL3G1E</pre>
+</div>
+</div>
+<footer><p>DOI: <a href="https://doi.org/10.7910/DVN/PL3G1E">10.7910/DVN/PL3G1E</a> | Juan Moises de la Serna | ORCID: 0000-0002-8401-8018 | CC0 1.0</p></footer>
+<script>
+const años=[2020,2021,2022,2023,2024,2025];
+Plotly.newPlot('chartEV',[
+  {x:años,y:[82.1,81.8,82.5,82.8,83.1,83.3],name:'Total',type:'scatter',mode:'lines+markers',line:{color:'#58a6ff',width:3},marker:{size:8}},
+  {x:años,y:[83.7,83.4,84.1,84.5,84.9,85.1],name:'Mujeres',type:'scatter',mode:'lines+markers',line:{color:'#ff79c6',width:3,dash:'dash'},marker:{size:8}},
+  {x:años,y:[80.5,80.2,80.9,81.1,81.4,81.6],name:'Hombres',type:'scatter',mode:'lines+markers',line:{color:'#3fb950',width:3,dash:'dot'},marker:{size:8}},
+  {x:años,y:[80.6,79.5,80.3,80.5,80.5,80.7],name:'Media OCDE',type:'scatter',mode:'lines',line:{color:'#ffa657',width:2,dash:'longdash'},marker:{size:6}}
+],{
+  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
+  legend:{bgcolor:'#21262d'},xaxis:{gridcolor:'#21262d'},
+  yaxis:{gridcolor:'#21262d',range:[78,87],title:'Años'},
+  margin:{t:20,r:40,b:50,l:60}
+},{responsive:true});
+
+Plotly.newPlot('chartComp',[
+  {type:'bar',x:años,y:[1.5,2.3,2.2,2.3,2.6,2.6],name:'Diferencia Israel-OCDE',marker:{color:'#58a6ff'},text:años.map((y,i)=>[1.5,2.3,2.2,2.3,2.6,2.6][i]+' años'),textposition:'outside'}
+],{
+  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
+  xaxis:{gridcolor:'#21262d'},yaxis:{gridcolor:'#21262d',title:'Diferencia (años)',range:[0,3.5]},
+  margin:{t:20,r:40,b:50,l:60},
+  title:{text:'Israel por encima de la media OCDE',font:{color:'#8b949e'}}
+},{responsive:true});
+</script>
+</body>
+</html>
