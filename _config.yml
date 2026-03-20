@@ -1,0 +1,18 @@
+title: "Israel Health Impact Database (2020-2025)"
+description: "Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E"
+author: "Juan Moisés de la Serna Tuya"
+url: "https://juanmoisesd.github.io"
+baseurl: "/israel-health-impact-2020-2025"
+theme: minima
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+social:
+  name: Juan Moisés de la Serna Tuya
+  links:
+    - https://orcid.org/0000-0002-8401-8018
+    - https://juanmoisesdelaserna.es
+    - https://github.com/juanmoisesd
+doi: 10.7910/DVN/PL3G1E
+show_excerpts: true
