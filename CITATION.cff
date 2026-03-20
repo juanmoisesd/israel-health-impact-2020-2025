@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it using the metadata below."
+type: dataset
+title: "Israel Health Impact Database (2020-2025)"
+authors:
+  - family-names: "de la Serna Tuya"
+    given-names: "Juan Moisés"
+    orcid: "https://orcid.org/0000-0002-8401-8018"
+    affiliation: "Universidad Internacional de La Rioja (UNIR)"
+    email: "juanmoises.delaserna@unir.net"
+doi: 10.7910/DVN/PL3G1E
+url: https://doi.org/10.7910/DVN/PL3G1E
+repository-code: "https://github.com/juanmoisesd/israel-health-impact-2020-2025"
+license: CC0-1.0
+date-released: "2026-03-20"
+keywords:
+  - "health"
+  - "israel"
+  - "dashboard"
+  - "open-data"
+  - "harvard-dataverse"
+  - "oecd"
+  - "public-health"
+abstract: "Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E"
