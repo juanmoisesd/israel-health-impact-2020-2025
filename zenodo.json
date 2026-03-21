@@ -1,0 +1,41 @@
+{
+  "title": "Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E",
+  "description": "Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "license": "cc-zero",
+  "creators": [
+    {
+      "name": "de la Serna Tuya, Juan Moisés",
+      "affiliation": "Universidad Internacional de La Rioja (UNIR)",
+      "orcid": "0000-0002-8401-8018"
+    }
+  ],
+  "keywords": [
+    "dashboard",
+    "harvard-dataverse",
+    "health",
+    "israel",
+    "oecd",
+    "open-data",
+    "public-health"
+  ],
+  "language": "eng",
+  "version": "1.0.0",
+  "publication_date": "2026-03-20",
+  "communities": [
+    {
+      "identifier": "zenodo"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/juanmoisesd/israel-health-impact-2020-2025",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "contributors": [],
+  "grants": [],
+  "notes": "Compiled from publicly available secondary sources. Author ORCID: https://orcid.org/0000-0002-8401-8018"
+}
