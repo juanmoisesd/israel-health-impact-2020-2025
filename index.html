@@ -1,160 +1,62 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impacto en la Salud de Israel 2020-2025 | Dashboard Interactivo</title>
-<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;}
-nav{background:#161b22;border-bottom:1px solid #30363d;padding:12px 20px;position:sticky;top:0;z-index:100;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
-nav a{color:#58a6ff;text-decoration:none;font-size:12px;padding:4px 8px;border-radius:4px;white-space:nowrap;}
-nav a:hover{background:#21262d;}
-nav .brand{color:#e6edf3;font-weight:700;font-size:14px;margin-right:8px;}
-.container{max-width:1200px;margin:0 auto;padding:24px 20px;}
-.hero{background:linear-gradient(135deg,#1a2332 0%,#0d1117 100%);border:1px solid #30363d;border-radius:12px;padding:40px;margin-bottom:32px;text-align:center;}
-.hero h1{font-size:2.2em;color:#58a6ff;margin-bottom:12px;}
-.hero .subtitle{color:#8b949e;font-size:1.1em;margin-bottom:20px;}
-.badge{display:inline-block;background:#21262d;border:1px solid #30363d;border-radius:20px;padding:4px 12px;font-size:12px;color:#8b949e;margin:4px;}
-.badge span{color:#58a6ff;font-weight:600;}
-.abstract{background:#161b22;border:1px solid #30363d;border-left:4px solid #58a6ff;border-radius:8px;padding:24px;margin-bottom:32px;}
-.abstract h2{color:#58a6ff;margin-bottom:12px;}
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:32px;}
-.kpi{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;text-align:center;}
-.kpi .val{font-size:2em;font-weight:700;color:#58a6ff;}
-.kpi .lbl{font-size:12px;color:#8b949e;margin-top:4px;}
-.chart-box{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
-.chart-box h3{color:#e6edf3;margin-bottom:16px;font-size:1.1em;}
-.pages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:32px;}
-.page-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;text-decoration:none;color:#e6edf3;transition:border-color .2s,transform .2s;}
-.page-card:hover{border-color:#58a6ff;transform:translateY(-2px);}
-.page-card .icon{font-size:2em;margin-bottom:8px;}
-.page-card h3{color:#58a6ff;font-size:1em;margin-bottom:6px;}
-.page-card p{color:#8b949e;font-size:12px;}
-.citation{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;margin-bottom:24px;}
-.citation h3{color:#e6edf3;margin-bottom:12px;}
-.citation pre{background:#0d1117;padding:16px;border-radius:6px;font-size:12px;color:#8b949e;overflow-x:auto;white-space:pre-wrap;}
-footer{background:#161b22;border-top:1px solid #30363d;padding:24px;text-align:center;color:#8b949e;font-size:13px;}
-footer a{color:#58a6ff;text-decoration:none;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E">
+  <meta name="author" content="Juan Moisés de la Serna Tuya">
+  <meta name="keywords" content="dashboard, harvard-dataverse, health, israel, oecd, open-data, public-health">
+  <meta property="og:title" content="Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E">
+  <meta property="og:description" content="Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E">
+  <meta property="og:url" content="https://juanmoisesd.github.io/israel-health-impact-2020-2025/">
+  <title>Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E",
+    "description": "Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E",
+    "url": "https://github.com/juanmoisesd/israel-health-impact-2020-2025",
+    "author": {
+      "@type": "Person",
+      "name": "Juan Moisés de la Serna Tuya",
+      "identifier": "https://orcid.org/0000-0002-8401-8018"
+    },
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "datePublished": "2026-03-20",
+    "keywords": "dashboard, harvard-dataverse, health, israel, oecd, open-data, public-health"
+  }
+  </script>
 </head>
 <body>
-<nav>
-<span class="brand">🏥 Israel Health 2020-2025</span>
-<a href="index.html">Inicio</a>
-<a href="esperanza-vida.html">Esperanza de Vida</a>
-<a href="mortalidad.html">Mortalidad</a>
-<a href="covid19.html">COVID-19</a>
-<a href="vacunacion.html">Vacunación</a>
-<a href="salud-mental.html">Salud Mental</a>
-<a href="guerra-salud.html">Guerra & Salud</a>
-<a href="sistema-salud.html">Sistema Sanitario</a>
-<a href="enfermedades-cronicas.html">Enf. Crónicas</a>
-<a href="comparativa-ocde.html">OCDE Comparativa</a>
-<a href="factores-riesgo.html">Factores Riesgo</a>
-<a href="gasto-sanitario.html">Gasto Sanitario</a>
-<a href="indicadores-clave.html">Indicadores Clave</a>
-<a href="tendencias.html">Tendencias</a>
-<a href="poblacion.html">Población</a>
-<a href="metodologia.html">Metodología</a>
-<a href="datos.html">Datos</a>
-<a href="sitemap.html">Sitemap</a>
-</nav>
-<div class="container">
-<div class="hero">
-<h1>🏥 Impacto en la Salud de Israel (2020–2025)</h1>
-<p class="subtitle">Índices Clave, Factores de Influencia y Comparaciones con la OCDE</p>
-<div>
-<span class="badge">DOI: <span>10.7910/DVN/PL3G1E</span></span>
-<span class="badge">Período: <span>2020–2025</span></span>
-<span class="badge">Variables: <span>10</span></span>
-<span class="badge">Obs: <span>27</span></span>
-<span class="badge">Fuente: <span>Harvard Dataverse</span></span>
-</div>
-</div>
-<div class="abstract">
-<h2>📋 Descripción del Dataset</h2>
-<p>Este conjunto de datos compila información sobre el impacto en la salud de Israel durante 2020–2025. Cubre índices de salud clave y los principales factores que influyen en los resultados de salud pública. Datos obtenidos de Perplexity AI, con fuentes del <strong>Centro Taub, PMC/NIH, Times of Israel, OMS, OCDE, Watson Brown Costs of War, Global Nutrition Report y Jerusalem Post</strong>. El período analizado incluye la pandemia de COVID-19, el proceso de vacunación masiva, y el impacto del conflicto del 7 de octubre de 2023.</p>
-</div>
-<div class="kpi-grid">
-<div class="kpi"><div class="val">83.1</div><div class="lbl">Esperanza de vida 2024 (años)</div></div>
-<div class="kpi"><div class="val">6.8M</div><div class="lbl">Vacunas COVID-19 administradas</div></div>
-<div class="kpi"><div class="val">37%</div><div class="lbl">Prevalencia TEPT post-7 Oct</div></div>
-<div class="kpi"><div class="val">8.2%</div><div class="lbl">Gasto sanitario / PIB 2024</div></div>
-<div class="kpi"><div class="val">3.1</div><div class="lbl">Médicos por 1.000 hab.</div></div>
-<div class="kpi"><div class="val">2.2</div><div class="lbl">Camas hospitalarias por 1.000</div></div>
-</div>
-<div class="chart-box">
-<h3>📊 Panorama General 2020–2025</h3>
-<div id="chartOverview" style="height:400px;"></div>
-</div>
-<div class="chart-box">
-<h3>🗂️ Áreas Temáticas Cubiertas</h3>
-<div id="chartAreas" style="height:380px;"></div>
-</div>
-<h2 style="color:#58a6ff;margin-bottom:20px;">📄 Explorar por Tema</h2>
-<div class="pages-grid">
-<a href="esperanza-vida.html" class="page-card"><div class="icon">📈</div><h3>Esperanza de Vida</h3><p>Tendencias por año y género 2020-2025</p></a>
-<a href="mortalidad.html" class="page-card"><div class="icon">💀</div><h3>Mortalidad</h3><p>Tasas de mortalidad y mortalidad excesiva</p></a>
-<a href="covid19.html" class="page-card"><div class="icon">🦠</div><h3>COVID-19</h3><p>Impacto pandémico completo 2020-2023</p></a>
-<a href="vacunacion.html" class="page-card"><div class="icon">💉</div><h3>Vacunación</h3><p>Despliegue y cobertura de vacunas</p></a>
-<a href="salud-mental.html" class="page-card"><div class="icon">🧠</div><h3>Salud Mental</h3><p>Estadísticas post-COVID y post-guerra</p></a>
-<a href="guerra-salud.html" class="page-card"><div class="icon">⚔️</div><h3>Guerra & Salud</h3><p>Impacto del conflicto 7-Oct-2023</p></a>
-<a href="sistema-salud.html" class="page-card"><div class="icon">🏨</div><h3>Sistema Sanitario</h3><p>Infraestructura y recursos hospitalarios</p></a>
-<a href="enfermedades-cronicas.html" class="page-card"><div class="icon">❤️</div><h3>Enf. Crónicas</h3><p>Obesidad, diabetes, cáncer, cardiovascular</p></a>
-<a href="comparativa-ocde.html" class="page-card"><div class="icon">🌍</div><h3>OCDE Comparativa</h3><p>Clasificación vs. 38 países OCDE</p></a>
-<a href="factores-riesgo.html" class="page-card"><div class="icon">⚠️</div><h3>Factores de Riesgo</h3><p>Tabaquismo, sedentarismo, alimentación</p></a>
-<a href="gasto-sanitario.html" class="page-card"><div class="icon">💰</div><h3>Gasto Sanitario</h3><p>Inversión en salud pública % PIB</p></a>
-<a href="indicadores-clave.html" class="page-card"><div class="icon">🎯</div><h3>Indicadores Clave</h3><p>Resumen de 10 variables principales</p></a>
-<a href="tendencias.html" class="page-card"><div class="icon">📉</div><h3>Tendencias</h3><p>Evolución temporal de indicadores</p></a>
-<a href="poblacion.html" class="page-card"><div class="icon">👥</div><h3>Población</h3><p>Demografía y estructura poblacional</p></a>
-<a href="metodologia.html" class="page-card"><div class="icon">🔬</div><h3>Metodología</h3><p>Fuentes, métodos y validación</p></a>
-<a href="datos.html" class="page-card"><div class="icon">📁</div><h3>Acceso a Datos</h3><p>Dataset completo en Harvard Dataverse</p></a>
-</div>
-<div class="citation">
-<h3>📚 Citación APA</h3>
-<pre>de la Serna, J. M. (2026). Base de Datos del Impacto en la Salud de Israel (2020–2025): Índices Clave, Factores de Influencia y Comparaciones con la OCDE. Harvard Dataverse. https://doi.org/10.7910/DVN/PL3G1E</pre>
-<h3 style="margin-top:16px;">BibTeX</h3>
-<pre>@dataset{delaSerna2026israel,
-  author    = {de la Serna, Juan Moises},
-  title     = {Base de Datos del Impacto en la Salud de Israel (2020–2025)},
-  year      = {2026},
-  publisher = {Harvard Dataverse},
-  doi       = {10.7910/DVN/PL3G1E},
-  url       = {https://doi.org/10.7910/DVN/PL3G1E}
-}</pre>
-</div>
-</div>
-<footer>
-<p>DOI: <a href="https://doi.org/10.7910/DVN/PL3G1E">10.7910/DVN/PL3G1E</a> | Autor: Juan Moises de la Serna | ORCID: 0000-0002-8401-8018 | Licencia: CC0 1.0 | Harvard Dataverse 2026</p>
-</footer>
-<script>
-Plotly.newPlot('chartOverview', [
-  {x:[2020,2021,2022,2023,2024,2025],y:[82.1,81.8,82.5,82.8,83.1,83.3],name:'Esperanza de vida',type:'scatter',mode:'lines+markers',line:{color:'#58a6ff',width:3},marker:{size:8}},
-  {x:[2020,2021,2022,2023,2024,2025],y:[7.8,7.9,8.0,8.1,8.2,8.3],name:'Gasto sanitario % PIB',type:'scatter',mode:'lines+markers',line:{color:'#3fb950',width:3},marker:{size:8},yaxis:'y2'}
-], {
-  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
-  legend:{bgcolor:'#21262d',bordercolor:'#30363d'},
-  xaxis:{gridcolor:'#21262d',title:'Año'},
-  yaxis:{gridcolor:'#21262d',title:'Esperanza de vida (años)',range:[80,85]},
-  yaxis2:{overlaying:'y',side:'right',title:'Gasto % PIB',gridcolor:'#21262d',range:[7,9]},
-  margin:{t:20,r:80,b:50,l:60}
-},{responsive:true});
-
-Plotly.newPlot('chartAreas', [{
-  type:'bar', orientation:'h',
-  x:[27,27,27,27,27,27,27,27],
-  y:['Comparativas OCDE','Enf. Crónicas','Sistema Sanitario','Impacto Guerra','Salud Mental','COVID-19/Vacunación','Mortalidad','Esperanza de Vida'],
-  marker:{color:['#f78166','#ff8c00','#d2a8ff','#ff6b6b','#58a6ff','#3fb950','#ffa657','#79c0ff']},
-  text:['8 indicadores','6 indicadores','4 indicadores','5 indicadores','4 indicadores','5 indicadores','5 indicadores','6 indicadores'],
-  textposition:'outside'
-}],{
-  paper_bgcolor:'#161b22',plot_bgcolor:'#0d1117',font:{color:'#e6edf3'},
-  xaxis:{gridcolor:'#21262d',title:'Observaciones'},
-  yaxis:{gridcolor:'#21262d'},
-  margin:{t:20,r:120,b:50,l:160}
-},{responsive:true});
-</script>
+  <header>
+    <h1>Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E</h1>
+    <p class="subtitle">Open Dataset by <a href="https://orcid.org/0000-0002-8401-8018">Juan Moisés de la Serna Tuya</a></p>
+  </header>
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E</p>
+      <ul>
+        <li><strong>Author:</strong> <a href="https://orcid.org/0000-0002-8401-8018">Juan Moisés de la Serna Tuya</a></li>
+        <li><strong>Institution:</strong> Universidad Internacional de La Rioja (UNIR)</li>
+        <li><strong>License:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a></li>
+        <li><strong>Repository:</strong> <a href="https://github.com/juanmoisesd/israel-health-impact-2020-2025">GitHub</a></li>
+      </ul>
+    </section>
+    <section id="cite">
+      <h2>How to Cite</h2>
+      <code>de la Serna Tuya, J.M. (2026). Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E. GitHub. https://github.com/juanmoisesd/israel-health-impact-2020-2025</code>
+    </section>
+    <section id="data">
+      <h2>Access Data</h2>
+      <a class="btn" href="https://github.com/juanmoisesd/israel-health-impact-2020-2025">View on GitHub</a>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 Juan Moisés de la Serna Tuya | <a href="https://orcid.org/0000-0002-8401-8018">ORCID</a> | <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
