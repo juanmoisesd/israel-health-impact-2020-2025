@@ -1,0 +1,16 @@
+{
+  "orcid": "0000-0002-8401-8018",
+  "name": "Juan Moisés de la Serna Tuya",
+  "affiliation": "Universidad Internacional de La Rioja (UNIR)",
+  "email": "juanmoises.delaserna@unir.net",
+  "website": "https://juanmoisesdelaserna.es",
+  "profile": "https://orcid.org/0000-0002-8401-8018",
+  "works": [
+    {
+      "title": "Interactive dashboard: Israel Health Impact Database (2020-2025). Key indices and OECD comparisons. DOI: 10.7910/DVN/PL3G1E",
+      "type": "dataset",
+      "url": "https://github.com/juanmoisesd/israel-health-impact-2020-2025",
+      "year": "2026"
+    }
+  ]
+}
